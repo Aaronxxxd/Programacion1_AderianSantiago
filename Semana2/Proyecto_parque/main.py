@@ -1,5 +1,4 @@
-
-from Gestion_parque.parque import registrar_visita
+from gestion_parque.parque import registrar_visita
 
 def main():
     print("🎢 Bienvenido a PythonLand 🎢")

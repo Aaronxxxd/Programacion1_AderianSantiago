@@ -1,18 +1,17 @@
+# Funciones
 
-# Datos de las atracciones
-edad_montaña_rusa = 12
 precio_montaña_rusa = 5000
+edad_montaña_rusa = 12
 
-edad_carrusel = 0
 precio_carrusel = 2000
+edad_carrusel = 0
 
-edad_autitos = 8
-precio_autitos = 3000
+precio_autitos_chocadores = 3000
+edad_autitos_chocadores = 8
 
-edad_kamikaze = 12
 precio_kamikaze = 4000
+edad_kamikaze = 12
 
-# Creamos las funciones
 def mostrar_atracciones():
     print("Atracciones disponibles:")
     print("1. Montaña Rusa - $5000 (Edad minima 12)")
@@ -20,25 +19,25 @@ def mostrar_atracciones():
     print("3. Autitos Chocadores - $3000 (Edad minima 8)")
     print("4. Kamikaze - $4000 (Edad minima 12)")
 
-def puede_subir(edad, atraccion):
+def puede_subir(edad, atraccion) -> bool:
     if atraccion == "1" and edad >= edad_montaña_rusa:
         return True
     elif atraccion == "2" and edad >= edad_carrusel:
         return True
-    elif atraccion == "3" and edad >= edad_autitos:
+    elif atraccion == "3" and edad >= edad_autitos_chocadores:
         return True
     elif atraccion == "4" and edad >= edad_kamikaze:
         return True
     else:
         return False
 
-def precio_atraccion(atraccion):
+def calcular_precio(atraccion) -> int:
     if atraccion == "1":
         return precio_montaña_rusa
     elif atraccion == "2":
         return precio_carrusel
     elif atraccion == "3":
-        return precio_autitos
+        return precio_autitos_chocadores
     elif atraccion == "4":
         return precio_kamikaze
     else:
@@ -57,7 +56,7 @@ def registrar_visita():
         if eleccion == "fin":
             break
         if puede_subir(edad, eleccion):
-            total += precio_atraccion(eleccion)
+            total += calcular_precio(eleccion)
             contador_atracciones += 1
             print(eleccion + " agregada.")
         else:
@@ -68,5 +67,5 @@ def registrar_visita():
         total = total * 0.9
 
     print("--- Resumen de la visita ---")
-    print("Visitante: " + nombre + " (" + str(edad) + " años)")
-    print("Total a pagar: $" + str(total))
+    print(f"Visitante: {nombre} ({edad} años)")
+    print(f"Total a pagar: ${total}")
