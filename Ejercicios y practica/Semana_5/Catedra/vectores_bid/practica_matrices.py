@@ -57,7 +57,7 @@ def total_repartidor(matriz: list):
         elif i == 2:
             total3 = total
 
-        print(f"El repartidor {i + 1} entregó un total de {total} paquetes en la semana.")
+        print(f"El repartidor {i + 1} entrego un total de {total} paquetes en la semana.")
 
     return total1, total2, total3
 
